@@ -1,0 +1,27 @@
+name: build
+on:
+  push:
+    branches:
+    - master
+    tags:
+    - v*
+  pull_request:
+jobs:
+  build:
+    name: Build
+    runs-on:
+      - self-hosted
+      - Linux
+      - kvm
+      - vagrant
+      - equinix
+    container:
+      image: rancher/dapper:v0.5.8
+    steps:
+    # Git is not in Dapper container image. Add it manually for dirty check.
+    - name: Add Git
+      run: apk add -U git
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Run dapper ci
+      run: dapper ci
