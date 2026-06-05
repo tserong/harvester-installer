@@ -20,9 +20,9 @@ const (
 
 	RancherdConfigFile = "/etc/rancher/rancherd/config.yaml"
 
-	DefaultCosOemSizeMiB      = 50
-	DefaultCosStateSizeMiB    = 15360
-	DefaultCosRecoverySizeMiB = 8192
+	DefaultCosOemSizeMiB      = 64 //50
+	DefaultCosStateSizeMiB    = 8192 //15360
+	DefaultCosRecoverySizeMiB = 4096 //8192
 
 	DefaultPersistentPercentageNum = 0.3
 	PersistentSizeMinGiB           = 150
